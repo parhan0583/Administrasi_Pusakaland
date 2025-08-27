@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ asset('style/stylelogin.css') }}">
 
 </head>
+<!-- test percobaan -->
 
 <body>
   <!-- partial:index.partial.html -->
