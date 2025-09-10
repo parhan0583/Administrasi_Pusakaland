@@ -121,9 +121,7 @@ a:hover {
 }
 
 .input-field:focus ~ .label,
-.input-field:valid ~ .label {
-  /* Added missing closing brace here */
-  position: absolute;
+.input-field:not(:placeholder-shown) ~ .label {
   top: -10px;
   left: 20px;
   font-size: 14px;
@@ -131,7 +129,7 @@ a:hover {
   border-radius: 30px;
   color: var(--black-color);
   padding: 0 10px;
-} /* Closed the missing brace */
+}
 
 .icon {
   position: absolute;

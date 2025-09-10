@@ -2,12 +2,12 @@
     <header>
         <div class="image-text">
             <span class="image">
-                <img src="{{ asset('img/logo PL.png') }}" alt="">
+                <img src="{{ asset('img/Logo_PL.png') }}" alt="">
             </span>
 
             <div class="text logo-text">
-                <span class="name">farhan</span>
-                <span class="profession">Web developer</span>
+                <span class="name">{{auth()->user()->name}}</span>
+                <span class="profession">{{auth()->user()->role}}</span>
             </div>
         </div>
 
@@ -18,53 +18,54 @@
         <div class="menu">
 
             <ul class="menu-links">
-                <li class="nav-link">
-                    <a href="#">
+                @if (auth()->user()->role=='admin')
+                <li class="nav-link ">
+                    <a href="/Padmin" >
                         <i class='bx bx-home-alt icon'></i>
-                        <span class="text nav-text">Dashboard</span>
+                        <span class="text nav-text">Kelola Akun</span>
                     </a>
                 </li>
-
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-bar-chart-alt-2 icon'></i>
-                        <span class="text nav-text">Revenue</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-bell icon'></i>
-                        <span class="text nav-text">Notifications</span>
-                    </a>
-                </li>
-
                 <li class="nav-link">
                     <a href="#">
                         <i class='bx bx-pie-chart-alt icon'></i>
                         <span class="text nav-text">Analytics</span>
                     </a>
                 </li>
-
+                @endif
+                @if (auth()->user()->role=='marketing')
+                <li class="nav-link">
+                    <a href="/Pmarketing">
+                        <i class='bx bx-bar-chart-alt-2 icon'></i>
+                        <span class="text nav-text">Pmarketing</span>
+                    </a>
+                </li>
                 <li class="nav-link">
                     <a href="#">
                         <i class='bx bx-heart icon'></i>
                         <span class="text nav-text">Likes</span>
                     </a>
                 </li>
-
+                @endif
+                @if (auth()->user()->role=='administrasi')
+                <li class="nav-link">
+                    <a href="/Padministrasi">
+                        <i class='bx bx-bell icon'></i>
+                        <span class="text nav-text">Notifications</span>
+                    </a>
+                </li>
                 <li class="nav-link">
                     <a href="#">
                         <i class='bx bx-wallet icon'></i>
                         <span class="text nav-text">Wallets</span>
                     </a>
                 </li>
+                @endif
             </ul>
         </div>
 
         <div class="bottom-content">
             <li class="">
-                <a href="#">
+                <a href="/logout">
                     <i class='bx bx-log-out icon'></i>
                     <span class="text nav-text">Logout</span>
                 </a>
